@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Your Name] - Portfolio 2025</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white font-space-grotesk">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-gray-900/80 backdrop-blur-md z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-teal-400">Avinash Prajapati</div>
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#home" class="nav-link hover:text-teal-400 transition-colors">Home</a></li>
+                <li><a href="#about" class="nav-link hover:text-teal-400 transition-colors">About</a></li>
+                <li><a href="#work" class="nav-link hover:text-teal-400 transition-colors">Work</a></li>
+                <li><a href="#contact" class="nav-link hover:text-teal-400 transition-colors">Contact</a></li>
+            </ul>
+            <button class="md:hidden text-2xl text-teal-400" id="menu-btn">☰</button>
+        </div>
+        <!-- Mobile Menu -->
+        <ul class="mobile-menu hidden flex-col space-y-4 p-4 bg-gray-800">
+            <li><a href="#home" class="nav-link hover:text-teal-400">Home</a></li>
+            <li><a href="#about" class="nav-link hover:text-teal-400">About</a></li>
+            <li><a href="#work" class="nav-link hover:text-teal-400">Work</a></li>
+            <li><a href="#contact" class="nav-link hover:text-teal-400">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-teal-950">
+        <div class="text-center px-4 animate-hero">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">I’m Avinash Prajapati</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-6">MCA Student | Creating simple and smart solutions with code.</p>
+            <a href="#work" class="inline-block px-6 py-3 bg-teal-400 text-gray-900 font-semibold rounded-full hover:bg-teal-500 transition-all">Discover My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 text-teal-400">About Me</h2>
+        <p class="text-lg text-gray-300 max-w-2xl mx-auto animate-slide-up">I’m Avinash Kumar, an MCA-AIML student from Bihar. I specialize in Python, Java, web development, Android app development, and AI/ML. 
+            I’m driven by my passion for coding and creating simple, smart solutions that make a difference.</p>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="py-20 px-4 max-w-7xl mx-auto bg-gray-800/50">
+        <h2 class="text-4xl font-bold text-center mb-12 text-teal-400">My Work</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="work-card bg-gray-700 p-6 rounded-lg hover:scale-105 transition-transform">
+                <h3 class="text-2xl font-semibold mb-2">Student Management System</h3>
+                <p class="text-gray-300 mb-4">
+                    <h2>🚀 Key Features</h2>
+                    <ul>
+                        <li><strong>Add Student</strong>: Insert new student data into the system.</li>
+                        <li><strong>Update Student</strong>: Modify existing student records.</li>
+                        <li><strong>Delete Student</strong>: Remove student data permanently from the database.</li>
+                        <li><strong>Search Student</strong>: Search for specific students using various filters like ID, Name, Phone, Email, etc.</li>
+                        <li><strong>Export Data</strong>: Export all student data to a CSV file for easy record-keeping.</li>
+                        <li><strong>Database Integration</strong>: Utilizes MySQL for backend data storage.</li>
+                        <li><strong>Data Validation</strong>: Ensures that all fields are correctly filled and prevents duplicate IDs.</li>
+                        <li><strong>User-Friendly Interface</strong>: Built with Tkinter for an intuitive GUI experience.</li>
+                    </ul>
+
+                    <h2>🛠️ Tools & Libraries Used</h2>
+                    <ul>
+                        <li><strong>Python (Tkinter)</strong>: For building the graphical user interface.</li>
+                        <li><strong>MySQL (pymysql)</strong>: For database connectivity and operations.</li>
+                        <li><strong>Pandas</strong>: For exporting data to CSV files.</li>
+                        <li><strong>ttkthemes</strong>: For styling Tkinter windows.</li>
+                        <li><strong>Messagebox & Filedialog</strong>: For user interactions and file handling.</li>
+                    </ul>
+
+                    <h2>💡 Learning Outcomes</h2>
+                    <ul>
+                        <li>Gained hands-on experience in GUI development using Tkinter.</li>
+                        <li>Learned how to integrate Python with MySQL databases.</li>
+                        <li>Implemented CRUD operations (Create, Read, Update, Delete).</li>
+                        <li>Enhanced skills in data validation and error handling.</li>
+                    </ul>
+                   
+                </p>
+                <a href="https://github.com/Avinash-prajapat/Student_Management_System-Using-MySQL-and-Tkinter-.git" class="text-teal-400 hover:underline">View Project</a>
+            </div>
+            <div class="work-card bg-gray-700 p-6 rounded-lg hover:scale-105 transition-transform">
+                <h3 class="text-2xl font-semibold mb-2">[Project 2]</h3>
+                <p class="text-gray-300 mb-4">[Short Description]</p>
+                <a href="#" class="text-teal-400 hover:underline">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 text-teal-400">Contact Me</h2>
+        <form id="contact-form" class="max-w-lg mx-auto space-y-6">
+            <input type="text" placeholder="Name" required class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-teal-400">
+            <input type="email" placeholder="Email" required class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-teal-400">
+            <textarea placeholder="Message" required class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-teal-400 min-h-[120px]"></textarea>
+            <button type="submit" class="w-full p-3 bg-teal-400 text-gray-900 font-semibold rounded-lg hover:bg-teal-500 transition-all">Send Message</button>
+        </form>
+    </section>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
