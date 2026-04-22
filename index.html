@@ -2,190 +2,401 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avinash - Portfolio 2025</title>
-    <!-- Tailwind CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Avinash Prajapati | AI/ML Engineer | Modern Portfolio 2025</title>
+    <!-- Google Fonts + Tailwind + Font Awesome (modern icons) -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="stylesheet" href="style.css?v=2">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0A0C10;
+            scroll-behavior: smooth;
+        }
+        /* custom neon glow & glassmorphism */
+        .glass-card {
+            background: rgba(18, 22, 30, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(45, 212, 191, 0.2);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .glass-card:hover {
+            border-color: #2dd4bf;
+            box-shadow: 0 0 20px rgba(45, 212, 191, 0.2);
+            transform: translateY(-6px);
+        }
+        .neon-text {
+            text-shadow: 0 0 8px rgba(45, 212, 191, 0.5);
+        }
+        .gradient-border {
+            background: linear-gradient(135deg, #2dd4bf, #0e7c6b);
+        }
+        .work-card-modern {
+            background: #11161f;
+            border-radius: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid #1e2a3a;
+        }
+        .work-card-modern:hover {
+            transform: translateY(-8px);
+            border-color: #2dd4bf;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
+        }
+        .section-title {
+            background: linear-gradient(135deg, #ffffff 30%, #2dd4bf 80%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        .nav-blur {
+            background: rgba(10, 12, 16, 0.85);
+            backdrop-filter: blur(16px);
+        }
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #1a1f2b;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #2dd4bf;
+            border-radius: 20px;
+        }
+        .hero-gradient {
+            background: radial-gradient(ellipse at 30% 40%, #0f2127, #0A0C10 70%);
+        }
+        .skill-badge {
+            background: rgba(45, 212, 191, 0.12);
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            border-radius: 40px;
+            padding: 0.3rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-8px); }
+        }
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+        .hover-glow:hover {
+            box-shadow: 0 0 15px rgba(45,212,191,0.4);
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white font-space">
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full bg-gray-900/80 backdrop-blur-md z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-teal-400">Avinash Prajapati</div>
-            <ul class="hidden md:flex space-x-8">
-                <li><a href="#home" class="nav-link hover:text-teal-400 transition-colors">Home</a></li>
-                <li><a href="#about" class="nav-link hover:text-teal-400 transition-colors">About</a></li>
-                <li><a href="#work" class="nav-link hover:text-teal-400 transition-colors">Work</a></li>
-                <li><a href="#contact" class="nav-link hover:text-teal-400 transition-colors">Contact</a></li>
+<body class="text-gray-200 custom-scroll">
+
+    <!-- Modern Navbar -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-tight">
+                <span class="text-teal-400">Avinash</span>
+                <span class="text-white">.dev</span>
+            </div>
+            <ul class="hidden md:flex gap-8 text-sm font-medium">
+                <li><a href="#home" class="hover:text-teal-400 transition-colors duration-200">Home</a></li>
+                <li><a href="#about" class="hover:text-teal-400 transition-colors duration-200">About</a></li>
+                <li><a href="#work" class="hover:text-teal-400 transition-colors duration-200">Projects</a></li>
+                <li><a href="#contact" class="hover:text-teal-400 transition-colors duration-200">Contact</a></li>
             </ul>
-            <button class="md:hidden text-2xl text-teal-400" id="menu-btn">☰</button>
+            <button id="mobileMenuBtn" class="md:hidden text-teal-400 text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-        <!-- Mobile Menu -->
-        <ul class="mobile-menu hidden flex-col space-y-4 p-4 bg-gray-800">
-            <li><a href="#home" class="nav-link hover:text-teal-400">Home</a></li>
-            <li><a href="#about" class="nav-link hover:text-teal-400">About</a></li>
-            <li><a href="#work" class="nav-link hover:text-teal-400">Work</a></li>
-            <li><a href="#contact" class="nav-link hover:text-teal-400">Contact</a></li>
-        </ul>
+        <!-- Mobile menu panel -->
+        <div id="mobileMenuPanel" class="hidden md:hidden bg-[#0A0C10]/95 backdrop-blur-xl border-t border-teal-400/20 py-5 px-6 flex flex-col gap-5 text-center">
+            <a href="#home" class="nav-mobile-link text-white hover:text-teal-400 py-2">Home</a>
+            <a href="#about" class="nav-mobile-link text-white hover:text-teal-400 py-2">About</a>
+            <a href="#work" class="nav-mobile-link text-white hover:text-teal-400 py-2">Work</a>
+            <a href="#contact" class="nav-mobile-link text-white hover:text-teal-400 py-2">Contact</a>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-teal-950">
-        <div class="text-center px-4 animate-hero">
-            <h1 class="text-5xl md:text-7xl font-bold mb-4">I’m Avinash Prajapati</h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-6">MCA Student | Creating simple and smart solutions with code.</p>
-            <a href="#work" class="inline-block px-6 py-3 bg-teal-400 text-gray-900 font-semibold rounded-full hover:bg-teal-500 transition-all">Discover My Work</a>
+    <!-- Hero Section - Modern & Dynamic -->
+    <section id="home" class="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden pt-20">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-teal-500/10 rounded-full blur-[80px]"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-[100px]"></div>
+        <div class="text-center px-6 z-10 max-w-5xl mx-auto">
+            <div class="inline-flex items-center gap-2 bg-teal-500/10 backdrop-blur-sm px-4 py-1.5 rounded-full border border-teal-400/30 mb-6">
+                <span class="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></span>
+                <span class="text-xs uppercase tracking-wider">AI/ML Enthusiast & Creator</span>
+            </div>
+            <h1 class="text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-5">
+                <span class="bg-gradient-to-r from-white via-teal-200 to-teal-400 bg-clip-text text-transparent">Avinash Prajapati</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">MCA Student | Building simple, smart solutions with Python, AI/ML & Full-stack magic.</p>
+            <div class="flex flex-wrap justify-center gap-5 mt-10">
+                <a href="#work" class="px-8 py-3.5 bg-teal-500 hover:bg-teal-400 text-gray-900 font-bold rounded-full transition-all shadow-lg shadow-teal-500/20 hover:scale-105 flex items-center gap-2"><i class="fas fa-arrow-down"></i> Explore Work</a>
+                <a href="#contact" class="px-8 py-3.5 border border-teal-400 text-teal-400 hover:bg-teal-400/10 rounded-full font-semibold transition-all flex items-center gap-2"><i class="fas fa-paper-plane"></i> Contact Me</a>
+            </div>
         </div>
-    
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 px-4 max-w-7xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-12 text-teal-400">About Me</h2>
-        <p class="text-lg text-gray-300 max-w-2xl mx-auto animate-slide-up">I’m Avinash Kumar, an MCA-AIML student from Bihar. I specialize in Python, Java, web development, Android app development, and AI/ML. 
-            I’m driven by my passion for coding and creating simple, smart solutions that make a difference.</p>
+    <!-- About Section (modern glass + stats) -->
+    <section id="about" class="py-28 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-teal-400 text-sm font-semibold uppercase tracking-wider">Who I Am</span>
+            <h2 class="text-4xl md:text-5xl font-bold mt-2 section-title">About Me</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="glass-card rounded-2xl p-8 space-y-5">
+                <p class="text-gray-200 text-lg leading-relaxed">I’m <span class="text-teal-300 font-semibold">Avinash Kumar</span>, an MCA-AIML student from Bihar, deeply passionate about building impactful tech. I specialize in <span class="text-teal-200">Python, Java, Web Development, Android, and AI/ML</span>. My mission is to create simple, intelligent solutions that bridge the gap between complex algorithms and real-world usability. I love transforming ideas into elegant code.</p>
+                <div class="flex flex-wrap gap-3 pt-4">
+                    <span class="skill-badge"><i class="fab fa-python mr-1 text-teal-400"></i> Python</span>
+                    <span class="skill-badge"><i class="fab fa-java mr-1 text-teal-400"></i> Java</span>
+                    <span class="skill-badge"><i class="fas fa-code mr-1 text-teal-400"></i> Web Dev</span>
+                    <span class="skill-badge"><i class="fas fa-brain mr-1 text-teal-400"></i> AI/ML</span>
+                    <span class="skill-badge"><i class="fas fa-database mr-1 text-teal-400"></i> MySQL</span>
+                    <span class="skill-badge"><i class="fab fa-android mr-1 text-teal-400"></i> Android</span>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-5">
+                <div class="bg-gray-800/40 rounded-2xl p-6 text-center border border-white/5 backdrop-blur-sm">
+                    <div class="text-4xl font-black text-teal-400">10+</div>
+                    <div class="text-sm mt-2 text-gray-300">Projects Completed</div>
+                </div>
+                <div class="bg-gray-800/40 rounded-2xl p-6 text-center border border-white/5 backdrop-blur-sm">
+                    <div class="text-4xl font-black text-teal-400">3</div>
+                    <div class="text-sm mt-2 text-gray-300">Major AI Integrations</div>
+                </div>
+                <div class="bg-gray-800/40 rounded-2xl p-6 text-center border border-white/5 backdrop-blur-sm">
+                    <div class="text-4xl font-black text-teal-400">100%</div>
+                    <div class="text-sm mt-2 text-gray-300">Passion for Code</div>
+                </div>
+                <div class="bg-gray-800/40 rounded-2xl p-6 text-center border border-white/5 backdrop-blur-sm">
+                    <div class="text-4xl font-black text-teal-400">2025</div>
+                    <div class="text-sm mt-2 text-gray-300">Innovation Vision</div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Work Section -->
-    <section id="work" class="py-20 px-4 max-w-7xl mx-auto bg-gray-800/50">
-        <h2 class="text-4xl font-bold text-center mb-12 text-teal-400">My Work</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Diabetes prediction -->
-            <div class="work-card bg-gray-700 p-6 rounded-lg hover:scale-105 transition-transform">
-                <h3 class="text-2xl font-semibold mb-2">Diabetes Prediction System</h3>
-                <p class="text-gray-300 mb-4">
-                    <div class="section">
-                        <h2><strong>Project Description:</strong></h2>
-                        <p>This is a <strong>Machine Learning-based Diabetes Prediction System</strong> developed using the <strong>Scikit-learn</strong> library. The model predicts whether a person is likely to have diabetes based on their medical details like age, glucose level, blood pressure, etc.</p>
+    <!-- Projects Section (Full data from your original content: Diabetes, Student Management, Contact System) -->
+    <section id="work" class="py-28 px-6 bg-gradient-to-b from-transparent to-black/40">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-teal-400 text-sm font-semibold uppercase tracking-wider">Portfolio</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-2 section-title">Featured Projects</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4">Real-world solutions — AI, database management, and desktop applications</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Diabetes Prediction Project -->
+                <div class="work-card-modern p-7 transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-teal-500/20 flex items-center justify-center text-2xl">🩺</div>
+                        <h3 class="text-2xl font-bold text-teal-300">Diabetes Prediction System</h3>
                     </div>
-            
-                    <h2><strong>Key Features:</strong></h2>
-                    <ul>
-                        <li><strong>Data Preprocessing:</strong> Handles missing values, scales data, and prepares it for training.</li>
-                        <li><strong>Model Training:</strong> Trains a logistic regression model using training data.</li>
-                        <li><strong>Prediction:</strong> Based on the input, predicts whether the person has diabetes or not.</li>
-                        <li><strong>Model Evaluation:</strong> Evaluates the model’s performance using accuracy and confusion matrix.</li>
-                    </ul>
-            
-                    <h2>🛠️<strong> Tools & Libraries Used</strong></h2>
-                    <ul>
-                        <li><strong>Python</strong>: For implementing the logic and model.</li>
-                        <li><strong>Scikit-learn</strong>: For creating and evaluating the machine learning model.</li>
-                        <li><strong>Pandas</strong>: For data manipulation and preprocessing.</li>
-                        <li><strong>Matplotlib</strong>: For data visualization.</li>
-                        <li><strong>NumPy</strong>: For numerical operations and array manipulation.</li>
-                    </ul>
-            
-                    <h2>💡 <strong>Learning Outcomes</strong></h2>
-                    <ul>
-                        <li>Learned how to preprocess data and handle missing values.</li>
-                        <li>Gained experience with machine learning algorithms, specifically logistic regression.</li>
-                        <li>Improved skills in evaluating models and understanding performance metrics like accuracy and confusion matrix.</li>
-                    </ul>
-                </p>
-                <a href="https://github.com/Avinash-prajapat/DIABETES_PREDICTOR_GUI" class="text-teal-400 hover:underline">View Project</a>
-            </div>
+                    <div class="space-y-4 text-gray-300">
+                        <p class="text-sm leading-relaxed">Machine Learning-based predictor using Scikit-learn & logistic regression. Predicts diabetes risk based on medical details (glucose, BP, age, etc.).</p>
+                        <div class="space-y-2">
+                            <div><span class="font-semibold text-teal-300">✨ Key Features:</span> Data preprocessing, Logistic Regression model, Confusion matrix, Accuracy evaluation.</div>
+                            <div><span class="font-semibold text-teal-300">🛠️ Tools:</span> Python, Scikit-learn, Pandas, Matplotlib, NumPy</div>
+                            <div><span class="font-semibold text-teal-300">💡 Learning Outcomes:</span> Handling missing data, model evaluation metrics, real-world ML pipeline.</div>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="https://github.com/Avinash-prajapat/DIABETES_PREDICTOR_GUI" target="_blank" class="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 font-medium transition-all"><i class="fab fa-github"></i> View Repository →</a>
+                    </div>
+                </div>
+                
+                <!-- Student Management System -->
+                <div class="work-card-modern p-7 transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-teal-500/20 flex items-center justify-center text-2xl">🎓</div>
+                        <h3 class="text-2xl font-bold text-teal-300">Student Management System</h3>
+                    </div>
+                    <div class="space-y-4 text-gray-300">
+                        <p class="text-sm leading-relaxed">Full CRUD application with MySQL backend and Tkinter GUI. Manages student records, updates, deletion, export to CSV, and search.</p>
+                        <div>
+                            <span class="font-semibold text-teal-300">🚀 Key Features:</span>
+                            <ul class="list-disc pl-5 mt-1 space-y-1 text-sm">
+                                <li>Add / Update / Delete Student Data</li>
+                                <li>Search via ID, Name, Phone, Email</li>
+                                <li>Export Data to CSV (Pandas)</li>
+                                <li>Data Validation & Duplicate Prevention</li>
+                            </ul>
+                        </div>
+                        <div><span class="font-semibold text-teal-300">🛠️ Tools:</span> Python (Tkinter), MySQL (pymysql), Pandas, ttkthemes</div>
+                        <div><span class="font-semibold text-teal-300">💡 Outcome:</span> Mastered CRUD operations & database integration.</div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="https://github.com/Avinash-prajapat/Student_Management_System-Using-MySQL-and-Tkinter-.git" target="_blank" class="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 font-medium"><i class="fab fa-github"></i> View Project →</a>
+                    </div>
+                </div>
 
-         <!-- Student Management System -->
-            <div  class="work-card bg-gray-700 p-6 rounded-lg hover:scale-105 transition-transform">
-                <h3 class="text-2xl font-semibold mb-2">Student Management System</h3>
-                <p class="text-gray-300 mb-4">
-                    <h2>🚀<strong> Key Features</strong></h2>
-                    <ul>
-                        <li><strong>Add Student</strong>: Insert new student data into the system.</li>
-                        <li><strong>Update Student</strong>: Modify existing student records.</li>
-                        <li><strong>Delete Student</strong>: Remove student data permanently from the database.</li>
-                        <li><strong>Search Student</strong>: Search for specific students using various filters like ID, Name, Phone, Email, etc.</li>
-                        <li><strong>Export Data</strong>: Export all student data to a CSV file for easy record-keeping.</li>
-                        <li><strong>Database Integration</strong>: Utilizes MySQL for backend data storage.</li>
-                        <li><strong>Data Validation</strong>: Ensures that all fields are correctly filled and prevents duplicate IDs.</li>
-                        <li><strong>User-Friendly Interface</strong>: Built with Tkinter for an intuitive GUI experience.</li>
-                    </ul>
-
-                    <h2>🛠️<strong> Tools & Libraries Used</strong></h2>
-                    <ul>
-                        <li><strong>Python (Tkinter)</strong>: For building the graphical user interface.</li>
-                        <li><strong>MySQL (pymysql)</strong>: For database connectivity and operations.</li>
-                        <li><strong>Pandas</strong>: For exporting data to CSV files.</li>
-                        <li><strong>ttkthemes</strong>: For styling Tkinter windows.</li>
-                        <li><strong>Messagebox & Filedialog</strong>: For user interactions and file handling.</li>
-                    </ul>
-
-                    <h2>💡 <strong>Learning Outcomes</strong></h2>
-                    <ul>
-                        <li>Gained hands-on experience in GUI development using Tkinter.</li>
-                        <li>Learned how to integrate Python with MySQL databases.</li>
-                        <li>Implemented CRUD operations (Create, Read, Update, Delete).</li>
-                        <li>Enhanced skills in data validation and error handling.</li>
-                    </ul>
-                   
-                </p>
-                <a href="https://github.com/Avinash-prajapat/Student_Management_System-Using-MySQL-and-Tkinter-.git" class="text-teal-400 hover:underline">View Project</a>
-            </div>
-              
-         <!-- Contact management system -->
-            <div class="work-card bg-gray-700 p-6 rounded-lg hover:scale-105 transition-transform">
-                <h3 class="text-2xl font-semibold mb-2">Contact management system</h3>
-                <p class="text-gray-300 mb-4">
-                        <div class="section">
-        <h2><strong>Project Description</strong></h2>
-        <p>The <strong>Contact Management System</strong> is a desktop application developed using <strong>Python's Tkinter</strong> library for the <strong>Graphical User Interface (GUI)</strong> and <strong>MySQL</strong> for backend database management. This system allows users to perform basic operations like <strong>adding, deleting, displaying, and searching contacts</strong>.</p>
-    </div>
-
-       <h1><strong>Contact Management System:</strong></h1>
-    <p>This is a Python-based Contact Management System developed using the Tkinter library for GUI and MySQL for backend data storage. The system allows efficient management of contacts by enabling users to add, delete, search, and display contacts. It also includes data validation to ensure the uniqueness of phone numbers and provides user feedback through message boxes.</p>
-
-    <h2><strong>Key Features:</strong></h2>
-    <ul>
-        <li><strong>Add Contact:</strong> Insert new contact details like name, phone, email, and address.</li>
-        <li><strong>Delete Contact:</strong> Remove existing contacts from the database.</li>
-        <li><strong>Search Contact:</strong> Search contacts by name or phone number.</li>
-        <li><strong>Display Contacts:</strong> View all stored contacts in a structured format.</li>
-        <li><strong>Data Validation:</strong> Ensures the uniqueness of phone numbers.</li>
-        <li><strong>User Feedback:</strong> Provides success or error messages using message boxes.</li>
-    </ul>
-                </p>
-                <a href="https://github.com/Avinash-prajapat/Contact-Management-Systme-SQL-" class="text-teal-400 hover:underline">View Project</a>
+                <!-- Contact Management System (full details) -->
+                <div class="work-card-modern p-7 transition-all duration-300 lg:col-span-2">
+                    <div class="flex flex-wrap items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-teal-500/20 flex items-center justify-center text-2xl">📇</div>
+                        <h3 class="text-2xl font-bold text-teal-300">Contact Management System</h3>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-5 text-gray-300">
+                        <div>
+                            <p class="text-sm">Desktop application with MySQL backend for managing contacts using Python Tkinter. Full-featured contact organizer with validation.</p>
+                            <div class="mt-3 space-y-1 text-sm">
+                                <div><span class="font-semibold text-teal-300">✨ Key Features:</span> Add, Delete, Search, Display Contacts, Phone uniqueness validation, user feedback message boxes.</div>
+                                <div><span class="font-semibold text-teal-300">🛠️ Tech stack:</span> Python, Tkinter, MySQL (pymysql), Messagebox, Filedialog.</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="bg-black/30 p-4 rounded-xl">
+                                <span class="font-semibold text-teal-300 block mb-2">💡 Learning Outcomes</span>
+                                <ul class="space-y-1 text-xs md:text-sm">
+                                    <li>✓ GUI development & event handling</li>
+                                    <li>✓ Database connectivity & integrity checks</li>
+                                    <li>✓ Data validation and error management</li>
+                                    <li>✓ Export & real-time search implementation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="https://github.com/Avinash-prajapat/Contact-Management-Systme-SQL-" target="_blank" class="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300"><i class="fab fa-github"></i> Explore on GitHub →</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4 max-w-7xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-12 text-teal-400">Contact Me</h2>
-        <form id="contact-form" class="max-w-lg mx-auto space-y-6">
-            <input type="text" placeholder="Name" required class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-teal-400">
-            <input type="email" placeholder="Email" required class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-teal-400">
-            <textarea placeholder="Message" required class="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-teal-400 min-h-[120px]"></textarea>
-            <button type="submit" class="w-full p-3 bg-teal-400 text-gray-900 font-semibold rounded-lg hover:bg-teal-500 transition-all">Send Message</button>
-        </form>
-    </section>
-   
-    <section id="contact" class="py-20 px-4 max-w-7xl mx-auto">
-      
-        <div class="social-links mt-8 flex justify-center gap-6">
-            <a href="https://www.instagram.com/avinashprajapati0408/" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg hover:bg-teal-500 transition-all duration-300">
-                <span class="text-2xl">📸</span>
-                <span class="text-white font-semibold">Instagram</span>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=100053495359773" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg hover:bg-teal-500 transition-all duration-300">
-                <span class="text-2xl">📘</span>
-                <span class="text-white font-semibold">Facebook</span>
-            </a>
-            <a href="https://www.linkedin.com/in/avinash-prajapati-244374253/" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg hover:bg-teal-500 transition-all duration-300">
-                <span class="text-2xl">💼</span>
-                <span class="text-white font-semibold">Linkedin</span>
-            </a>
+    <!-- Contact Section + Socials (modern glass, all links) -->
+    <section id="contact" class="py-28 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+            <span class="text-teal-400 text-sm font-semibold uppercase tracking-wider">Get in Touch</span>
+            <h2 class="text-4xl md:text-5xl font-bold mt-2 section-title">Let's Collaborate</h2>
+            <p class="text-gray-400 mt-3">Have a project or query? I'm just a message away.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+            <!-- Contact Form -->
+            <div class="glass-card rounded-2xl p-8">
+                <form id="contactForm" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2 text-gray-300"><i class="far fa-user mr-1 text-teal-400"></i> Full Name</label>
+                        <input type="text" id="fullName" required class="w-full bg-black/40 border border-gray-700 rounded-xl p-3 text-white focus:outline-none focus:border-teal-400 transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2 text-gray-300"><i class="far fa-envelope mr-1 text-teal-400"></i> Email Address</label>
+                        <input type="email" id="emailAddr" required class="w-full bg-black/40 border border-gray-700 rounded-xl p-3 text-white focus:outline-none focus:border-teal-400 transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2 text-gray-300"><i class="far fa-comment-dots mr-1 text-teal-400"></i> Message</label>
+                        <textarea id="msgText" rows="4" required class="w-full bg-black/40 border border-gray-700 rounded-xl p-3 text-white focus:outline-none focus:border-teal-400 transition"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-teal-500 hover:bg-teal-400 text-gray-900 font-bold py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg"><i class="fas fa-paper-plane"></i> Send Message</button>
+                </form>
+            </div>
+            <!-- Social Links & Info -->
+            <div class="space-y-6">
+                <div class="glass-card rounded-2xl p-7">
+                    <h3 class="text-xl font-bold mb-4 text-teal-300"><i class="fas fa-share-alt mr-2"></i> Connect Socially</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://www.instagram.com/avinashprajapati0408/" target="_blank" class="flex items-center gap-3 px-5 py-3 bg-gray-800/60 rounded-xl hover:bg-gradient-to-r from-pink-600 to-orange-500 transition-all duration-300"><i class="fab fa-instagram text-2xl"></i><span>Instagram</span></a>
+                        <a href="https://www.facebook.com/profile.php?id=100053495359773" target="_blank" class="flex items-center gap-3 px-5 py-3 bg-gray-800/60 rounded-xl hover:bg-blue-700 transition"><i class="fab fa-facebook text-2xl"></i><span>Facebook</span></a>
+                        <a href="https://www.linkedin.com/in/avinash-prajapati-244374253/" target="_blank" class="flex items-center gap-3 px-5 py-3 bg-gray-800/60 rounded-xl hover:bg-blue-600 transition"><i class="fab fa-linkedin text-2xl"></i><span>LinkedIn</span></a>
+                        <a href="https://github.com/Avinash-prajapat" target="_blank" class="flex items-center gap-3 px-5 py-3 bg-gray-800/60 rounded-xl hover:bg-gray-700 transition"><i class="fab fa-github text-2xl"></i><span>GitHub</span></a>
+                    </div>
+                </div>
+                <div class="bg-gray-800/30 rounded-2xl p-6 text-center border border-white/5">
+                    <i class="fas fa-map-marker-alt text-teal-400 text-2xl mb-2"></i>
+                    <p class="text-gray-300">Bihar, India</p>
+                    <p class="text-sm text-gray-400 mt-2">Open for freelance & collaboration opportunities</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-gray-500 text-sm mt-20 pt-6 border-t border-gray-800">
+            © 2025 Avinash Prajapati — Built with modern web tools & AI passion.
         </div>
     </section>
 
-    <script type="module" src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const mobilePanel = document.getElementById('mobileMenuPanel');
+        if (menuBtn && mobilePanel) {
+            menuBtn.addEventListener('click', () => {
+                mobilePanel.classList.toggle('hidden');
+            });
+            // Close mobile menu when clicking on links
+            document.querySelectorAll('.nav-mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobilePanel.classList.add('hidden');
+                });
+            });
+        }
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href !== "#") {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        if (mobilePanel && !mobilePanel.classList.contains('hidden')) mobilePanel.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Contact form simulation (modern mock)
+        const contactFormElem = document.getElementById('contactForm');
+        if (contactFormElem) {
+            contactFormElem.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const name = document.getElementById('fullName')?.value.trim();
+                const email = document.getElementById('emailAddr')?.value.trim();
+                const message = document.getElementById('msgText')?.value.trim();
+                if (!name || !email || !message) {
+                    alert("❌ Please fill all fields before sending.");
+                    return;
+                }
+                const btn = contactFormElem.querySelector('button[type="submit"]');
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                btn.disabled = true;
+                try {
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    alert(`✅ Thanks ${name}! Your message has been sent. Avinash will reply soon.`);
+                    contactFormElem.reset();
+                } catch (error) {
+                    alert("⚠️ Something went wrong, please try again later.");
+                } finally {
+                    btn.innerHTML = originalHtml;
+                    btn.disabled = false;
+                }
+            });
+        }
+
+        // Add Intersection Observer for cards animation
+        const fadeElements = document.querySelectorAll('.work-card-modern, .glass-card, .skill-badge');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(20px)';
+                    entry.target.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px' });
+        fadeElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
-
-
-
-
